@@ -41,7 +41,7 @@ const Reports: React.FC = () => {
 
   // Sabit değerler
   const TONAJ_PER_SEFER = 25; // Her sefer başına ortalama 25 ton
-  const FIYAT_PER_TON = 125; // Ton başına 125 TL
+  const FIYAT_PER_TON = 156; // Ton başına 156 TL
 
   useEffect(() => {
     fetchTrucks();
@@ -148,22 +148,13 @@ const Reports: React.FC = () => {
 
         {statistics && (
           <Grid container spacing={2}>
-            <Grid item xs={12} md={2.4}>
-              <Paper sx={{ p: 2, textAlign: 'center', bgcolor: '#e3f2fd' }}>
-                <Typography variant="h6">Toplam Mazot</Typography>
-                <Typography variant="h4">{formatNumber(statistics.toplam_mazot_litre)} Lt</Typography>
-                <Typography variant="subtitle1">
-                  {formatNumber(statistics.toplam_mazot_maliyet)} TL
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={2.4}>
+            <Grid item xs={12} md={4}>
               <Paper sx={{ p: 2, textAlign: 'center', bgcolor: '#e8f5e9' }}>
                 <Typography variant="h6">Toplam Sefer</Typography>
                 <Typography variant="h4">{formatNumber(statistics.toplam_sefer)}</Typography>
               </Paper>
             </Grid>
-            <Grid item xs={12} md={2.4}>
+            <Grid item xs={12} md={4}>
               <Paper sx={{ p: 2, textAlign: 'center', bgcolor: '#fff3e0' }}>
                 <Typography variant="h6">Lastik Tamir</Typography>
                 <Typography variant="h4">{formatNumber(statistics.toplam_lastik_maliyet)} TL</Typography>
@@ -172,16 +163,7 @@ const Reports: React.FC = () => {
                 </Typography>
               </Paper>
             </Grid>
-            <Grid item xs={12} md={2.4}>
-              <Paper sx={{ p: 2, textAlign: 'center', bgcolor: '#e8eaf6' }}>
-                <Typography variant="h6">Toplam İşlem</Typography>
-                <Typography variant="h4">{formatNumber(statistics.toplam_islem_maliyeti || 0)} TL</Typography>
-                <Typography variant="subtitle2">
-                  (Tamir ve Bakım)
-                </Typography>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={2.4}>
+            <Grid item xs={12} md={4}>
               <Paper sx={{ p: 2, textAlign: 'center', bgcolor: '#f3e5f5' }}>
                 <Typography variant="h6">Tahmini Gelir</Typography>
                 <Typography variant="h4">{formatNumber(calculateIncome(statistics.toplam_sefer))} TL</Typography>
