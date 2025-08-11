@@ -219,12 +219,11 @@ const App: React.FC = () => {
   };
 
   const menuItems = [
-    { text: 'Kamyonlar', icon: <LocalShipping />, path: '/' },
-    { text: 'Dükkanlar', icon: <Store />, path: '/workshops' },
     { text: 'İşlemler', icon: <Build />, path: '/operations' },
     { text: 'Aylık Kayıtlar', icon: <DateRange />, path: '/monthly-records' },
-    { text: 'Faturalar', icon: <Receipt />, path: '/invoices' },
     { text: 'Raporlar', icon: <Assessment />, path: '/reports' },
+    { text: 'Kamyonlar', icon: <LocalShipping />, path: '/trucks' },
+    { text: 'Dükkanlar', icon: <Store />, path: '/workshops' },
   ];
 
   const drawer = (
@@ -383,7 +382,8 @@ const App: React.FC = () => {
             }}
           >
             <Routes>
-              <Route path="/" element={<TruckList />} />
+              <Route path="/" element={<OperationList />} />
+              <Route path="/trucks" element={<TruckList />} />
               <Route path="/truck/new" element={<TruckForm />} />
               <Route path="/truck/edit/:plaka" element={<TruckForm />} />
               
