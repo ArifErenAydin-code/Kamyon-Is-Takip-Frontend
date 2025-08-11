@@ -32,9 +32,11 @@ interface Statistics {
 }
 
 const Reports: React.FC = () => {
-  const [selectedMonth, setSelectedMonth] = useState(
-    new Date().toISOString().slice(0, 7)
-  );
+  const [selectedMonth, setSelectedMonth] = useState(() => {
+    const today = new Date();
+    today.setMonth(today.getMonth() - 1); // Bir önceki ay
+    return today.toISOString().slice(0, 7);
+  });
   const [selectedTruck, setSelectedTruck] = useState<string>('');
   const [trucks, setTrucks] = useState<string[]>([]);
   const [statistics, setStatistics] = useState<Statistics | null>(null);

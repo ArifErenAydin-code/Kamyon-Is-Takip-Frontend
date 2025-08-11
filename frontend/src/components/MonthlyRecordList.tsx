@@ -67,9 +67,11 @@ const MonthlyRecordList: React.FC = () => {
   const [trucks, setTrucks] = useState<Truck[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTruck, setSelectedTruck] = useState('');
-  const [selectedMonth, setSelectedMonth] = useState(
-    new Date().toISOString().slice(0, 7)
-  );
+  const [selectedMonth, setSelectedMonth] = useState(() => {
+    const today = new Date();
+    today.setMonth(today.getMonth() - 1); // Bir önceki ay
+    return today.toISOString().slice(0, 7);
+  });
   const [alert, setAlert] = useState<{
     open: boolean;
     message: string;
